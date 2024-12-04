@@ -23,9 +23,12 @@
     <v-list-item title="My Application" subtitle="Vuetify"></v-list-item>
 <v-divider></v-divider>
 <v-list-item to="/">Inicio</v-list-item>
-      <v-list-item to="/Tabla">Tabla</v-list-item>
+       <v-list-item to="/Tabla">Tabla</v-list-item>
         <v-list-item to="/card">Mi carta</v-list-item>
         <v-list-item to="/aleatoria">Imagenes</v-list-item>
+        <v-list-item to="/Estudiantes">Estudiantes </v-list-item>
+        <v-list-item to="/Profesores">Profesores</v-list-item>
+        <v-list-item to="/Cursos">Cursos</v-list-item>
     </v-navigation-drawer>
 
     <v-main>

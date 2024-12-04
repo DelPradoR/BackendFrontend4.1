@@ -1,7 +1,7 @@
 <template>
   <v-container class="fill-height">
     <v-responsive
-      class="align-centerfill-height mx-auto"
+      class="align-center fill-height mx-auto"
       max-width="900"
     >
       <v-img
@@ -12,7 +12,6 @@
 
       <div class="text-center">
         <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
-
         <h1 class="text-h2 font-weight-bold">Vuetify</h1>
       </div>
 
@@ -76,82 +75,44 @@
           </v-card>
         </v-col>
 
-        <v-col cols="6">
-          <v-card
-            append-icon="mdi-open-in-new"
-            class="py-4"
-            color="surface-variant"
-            href="https://vuetifyjs.com/introduction/why-vuetify/#feature-guides"
-            prepend-icon="mdi-star-circle-outline"
-            rel="noopener noreferrer"
-            rounded="lg"
-            subtitle="Explore available framework Features."
-            target="_blank"
-            title="Features"
-            variant="text"
-          >
-            <v-overlay
-              opacity=".06"
-              scrim="primary"
-              contained
-              model-value
-              persistent
-            />
-          </v-card>
-        </v-col>
+        <!-- Otros v-col aquí -->
 
-        <v-col cols="6">
-          <v-card
-            append-icon="mdi-open-in-new"
-            class="py-4"
-            color="surface-variant"
-            href="https://vuetifyjs.com/components/all"
-            prepend-icon="mdi-widgets-outline"
-            rel="noopener noreferrer"
-            rounded="lg"
-            subtitle="Discover components in the API Explorer."
-            target="_blank"
-            title="Components"
-            variant="text"
-          >
-            <v-overlay
-              opacity=".06"
-              scrim="primary"
-              contained
-              model-value
-              persistent
-            />
-          </v-card>
-        </v-col>
-
-        <v-col cols="6">
-          <v-card
-            append-icon="mdi-open-in-new"
-            class="py-4"
-            color="surface-variant"
-            href="https://discord.vuetifyjs.com"
-            prepend-icon="mdi-account-group-outline"
-            rel="noopener noreferrer"
-            rounded="lg"
-            subtitle="Connect with Vuetify developers."
-            target="_blank"
-            title="Community"
-            variant="text"
-          >
-            <v-overlay
-              opacity=".06"
-              scrim="primary"
-              contained
-              model-value
-              persistent
-            />
-          </v-card>
-        </v-col>
+        <!-- Agrega más v-col según sea necesario -->
       </v-row>
+
+      <!-- Mensaje desde la API -->
+      <div class="mt-4 text-center">
+        <h1>{{ message }}</h1>
+      </div>
     </v-responsive>
   </v-container>
 </template>
 
-<script setup>
-  //
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      message: '',
+    };
+  },
+  mounted() {
+    axios.get('http://localhost:4000/Estudiantes/1')
+      .then(response => {
+        this.message = response.data.message;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  },
+};
 </script>
+
+<script setup>
+// Este bloque está vacío y no es necesario si no estás usando Composition API aquí.
+</script>
+
+<style scoped>
+/* Estilos específicos del componente */
+</style>
